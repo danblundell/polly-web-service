@@ -1,0 +1,29 @@
+{
+  "name": "polly-web-service",
+  "version": "1.0.0",
+  "description": "Reusable server-side application utilizing AWS Polly",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Watson6982/polly-web-service.git"
+  },
+  "keywords": [
+    "polly",
+    "aws",
+    "amazon"
+  ],
+  "author": "Josh Watson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Watson6982/polly-web-service/issues"
+  },
+  "homepage": "https://github.com/Watson6982/polly-web-service#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "helmet": "^3.6.1"
+  }
+}
