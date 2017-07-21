@@ -58,3 +58,4 @@ typings/
 .env
 
 # audio files
+*.mp3
