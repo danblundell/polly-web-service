@@ -12,9 +12,6 @@ const Polly = new AWS.Polly({
 
 // landing page
 router.post('/', (req, res) => {
-		//date variation for voice file name
-		var dt = Date.now();
-
 		//aws voice params
 		let params = {
 		'Text': req.body.keyname,
@@ -31,7 +28,7 @@ router.get('/', (req, res) => {
 		let params = {
 		'Text': req.query.keyname,
 		'OutputFormat': 'mp3',
-		'VoiceId': 'Kimberly'
+		'VoiceId': req.query.person
 		}
 		//voice synth
 		sendTextToPolly(params, res);
@@ -41,6 +38,15 @@ router.get('/', (req, res) => {
 function sendTextToPolly(params, res) {
 		//date variation for voice file name
 		var dt = Date.now();
+
+		if (!params.Text) {
+			params.Text = 'You have not submitted any text';
+		}
+
+		if (!params.VoiceId) {
+			params.VoiceId = 'Joey';
+		}
+
 		Polly.synthesizeSpeech(params, (err, data) => {
 		if (err) {
 			console.log(err.code)
