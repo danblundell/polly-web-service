@@ -3,7 +3,7 @@ const helmet = require('helmet');
 const bodyParser = require('body-parser');
 
 // routes files
-var routes = require('./routes/site.js');
+var routes = require('./routes/api.js');
 
 //webpage
 const PORT = process.env.PORT || 3002;

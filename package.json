@@ -2,7 +2,7 @@
   "name": "polly-web-service",
   "version": "1.0.0",
   "description": "Reusable server-side application utilizing AWS Polly",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "test"
   },
@@ -22,8 +22,10 @@
   },
   "homepage": "https://github.com/Watson6982/polly-web-service#readme",
   "dependencies": {
+    "aws-sdk": "^2.88.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "fs": "0.0.1-security",
     "helmet": "^3.6.1"
   }
 }

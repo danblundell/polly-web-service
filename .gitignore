@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+# audio files
+public/assets/audio
+*.mp3
