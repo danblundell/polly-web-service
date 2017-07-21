@@ -58,5 +58,4 @@ typings/
 .env
 
 # audio files
-public/assets/audio
 *.mp3
