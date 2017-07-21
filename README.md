@@ -1,8 +1,18 @@
 # Polly-Web-Service
-Reusable server-side application utilizing AWS Polly
+This prototype is looking to improve accessability by experiementing with text-2-speech services. 
 
-#AWS credentials
-TODO: Add where to get AWS credentials from.
-Set up credentials file in the C:/AWS/
+Part 1: Build a webservice to send GET/POST Requests to AWS Polly.
+Part 2: Provide a way for webpages to interact with the webservice.
+Part 3: Provide a way for multiple service to interact with webservice.
 
-#Instructions for use
+The goal is to build a reusable server-side application utilizing AWS Polly.
+
+# Requirements to run
+AWS Polly service credentials
+Node.js
+
+# Obtaining AWS Polly Service credentials
+TODO: Add how to obtain and set up AWS polly credentials
+
+# Instructions for use
+TODO: Instructions for use
