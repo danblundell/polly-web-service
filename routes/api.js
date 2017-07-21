@@ -19,26 +19,44 @@ router.post('/', (req, res) => {
 		let params = {
 		'Text': req.body.keyname,
 		'OutputFormat': 'mp3',
+		'VoiceId': req.body.person
+		}
+		//voice synth
+		sendTextToPolly(params, res);
+	}
+);
+
+router.get('/', (req, res) => {
+		//aws voice params
+		let params = {
+		'Text': req.query.keyname,
+		'OutputFormat': 'mp3',
 		'VoiceId': 'Kimberly'
 		}
 		//voice synth
-		Polly.synthesizeSpeech(params, (err, data) => {
-			if (err) {
-				console.log(err.code)
-			} else if (data) {
-				if (data.AudioStream instanceof Buffer) {
-					Fs.writeFile("./public/assets/audio/speech"+ dt +".mp3", data.AudioStream, function(err) {
-						if (err) {
-							return console.log(err)
-						}
-						console.log("The file was saved!")
-						//If successful return the voice file as a json object
-						res.status(200).json({file: "/assets/audio/speech"+ dt +".mp3"})
-					})
-				}
-			}
-		})
+		sendTextToPolly(params, res);
 	}
 );
+
+function sendTextToPolly(params, res) {
+		//date variation for voice file name
+		var dt = Date.now();
+		Polly.synthesizeSpeech(params, (err, data) => {
+		if (err) {
+			console.log(err.code)
+		} else if (data) {
+			if (data.AudioStream instanceof Buffer) {
+				Fs.writeFile("./public/assets/audio/speech"+ dt +".mp3", data.AudioStream, function(err) {
+					if (err) {
+						return console.log(err)
+					}
+					console.log("The file was saved!")
+					//If successful return the voice file as a json object
+					res.status(200).json({file: "/assets/audio/speech"+ dt +".mp3"})
+				})
+			}
+		}
+	})
+}
 
 module.exports = router;
