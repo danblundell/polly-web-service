@@ -1,6 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 // routes files
 var routes = require('./routes/api.js');
@@ -18,6 +19,7 @@ app.use(express.static('public'))
 app.use(helmet()); // security stuffs
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(cors()); //use cors authentication
 
 // set up separate routes files for easier management
 app.use('/', routes);
